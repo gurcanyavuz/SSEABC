@@ -1,0 +1,74 @@
+###########################################################################
+#
+# SSEABC : Self-adaptive Search Equation-based Artificial Bee Colony Algorithm for CEC'14 Functions
+#
+###########################################################################
+
+Version	: 1.0
+Author	:  Gurcan Yavuz, Dogan Aydin and Thomas Stuetzle
+Copyright (c) Gurcan Yavuz, Dogan Aydin and Thomas Stuetzle, 2016
+
+=====
+Installation
+=====
+
+The software was developed in C under Linux, using the GNU 4.2.4
+gcc compiler and extensively tested in this environment. The software
+is distributed as a gzipped tar file.
+
+Important: At first, GNU Scientific Library should be installed into computer. Then, 
+to install the code, expand the archive SSEABC.v1.0.tar.gz by typing:
+
+tar -zxvf SSEABC.v1.0.tar.gz
+
+The software will be unpacked in a new folder called SSEABC 
+
+To compile it for the first time under Linux just type:
+
+autoreconf -fvi
+./configure
+make
+
+The executable 'abc' will be produced. To compile the source code 
+again, just type:
+
+make
+
+=======
+Parameters of SSEABC
+======
+
+The description of the parameters can be found in the published paper.
+
+======
+Usage for CEC'14 functions
+======
+
+The parameters of SSEABC algorithm is tuned by using irace package for each CEC'14 competition function. For each 10-dimensional 
+problem the algorithm should be run with the following commands
+(for 30, 50 and 100-dimensional problems only --dimensions, --problemID and --fes parameters should be changed): 
+
+Sample Execution Command For Problem 1
+--------------------------------------
+./abc --limitF 1.7396 --nfoods 13 --maxfoodsize 25 --lsID 4 --growthperiod 13  --asize  500 --seed $RANDOM --competitionID 4   --minrange -100 --maxrange 100  --lsStrategy 2 --ttunea 8.1864 --ttuneb 1.1334 --ttunec 0.1026 --ttuned 3.6703 --ttunee  -18.2734 --ttunef -12.3001 --ttuneg -14.2054 --lsItr 84 --tr 0.3 --cmar 0.15 --dimensions 10 --fes 100000 --problemID 1
+
+=======
+OUTPUT
+=======
+
+SSEABC version 1.0 writes its output to the console. It reports the development
+of the best solution value over time in the following format:
+
+#function_evaluations	solution_value	elapsed_time  
+
+The first column reports the number of function evaluations and third column
+reports the elapsed time that have been required for finding a solution of the value printed in the second column. 
+
+A line is printed only when a better solution than the current one is found.
+
+Thank you for your interest in this work. If you have any questions about the 
+code or bugs to report, please send an email to:
+
+Dogan Aydin
+dogan.aydin@dpu.edu.tr
+
